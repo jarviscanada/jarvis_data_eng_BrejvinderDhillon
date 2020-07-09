@@ -7,6 +7,7 @@ db_username=$2
 db_password=$3
 
 #FUNCTIONS
+#To check if the container has already been created
 created() {
   if [ $(docker container ls -a -f name=$CONTAINER | wc -l) -eq 2 ]; then
     return 0
@@ -15,6 +16,7 @@ created() {
   fi
 }
 
+#To check if the container is already running
 running() {
   if [ $(docker ps -f name=${CONTAINER} | wc -l) -eq 2 ]; then
     return 0
@@ -23,6 +25,7 @@ running() {
   fi
 }
 
+#To create the container if it hasn't been created
 create() {
   if created; then
     echo "ERROR: the ${CONTAINER} container has already been created"
@@ -32,9 +35,7 @@ create() {
   fi
 
   docker pull postgres
-
   docker volume create pgdata
-
   docker run --name ${CONTAINER} -e POSTGRES_PASSWORD=${db_password} -e POSTGRES_USER=${db_username} -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
 
   if ! created; then
@@ -59,6 +60,7 @@ err_stop_usage() {
 #MAIN
 systemctl --quiet status docker || systemctl --quiet start docker
 
+#Handle arguments
 case $command in
 create)
   if [ $# -eq 3 ]; then
