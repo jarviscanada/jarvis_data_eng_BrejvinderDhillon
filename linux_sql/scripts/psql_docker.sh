@@ -58,7 +58,7 @@ err_stop_usage() {
 }
 
 #MAIN
-systemctl --quiet status docker || systemctl --quiet start docker
+sudo systemctl --quiet status docker || sudo systemctl --quiet start docker
 
 #Handle arguments
 case $command in
