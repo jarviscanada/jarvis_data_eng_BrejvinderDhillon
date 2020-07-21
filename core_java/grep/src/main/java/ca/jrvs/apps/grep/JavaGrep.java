@@ -8,12 +8,14 @@ public interface JavaGrep {
 
   /**
    * Top level search workflow
+   *
    * @throws IOException
    */
   void process() throws IOException;
 
   /**
    * Traverse a given directory and return all files
+   *
    * @param rootDir - Input directory
    * @return files under rootdir
    */
@@ -21,6 +23,7 @@ public interface JavaGrep {
 
   /**
    * Read a file and return all the lines
+   *
    * @param inputFile - File to be read
    * @return lines
    * @throws IllegalArgumentException if given an inputFile which is not a file
@@ -29,12 +32,14 @@ public interface JavaGrep {
 
   /**
    * Check if a line contains the regex pattern (Passed by the user)
+   *
    * @param line - Input string
    */
   boolean containsPattern(String line);
 
   /**
    * Write lines to a file
+   *
    * @param lines - Matched lines
    * @throws IOException if write failed
    */
