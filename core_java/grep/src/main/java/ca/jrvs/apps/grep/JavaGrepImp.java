@@ -70,7 +70,7 @@ public class JavaGrepImp implements JavaGrep {
    * @return files under the root directory
    */
   @Override
-  public List<File> listFiles(String rootDir) {
+  public List<File> listFiles(String rootDir) throws IOException {
     List<File> files = new ArrayList<File>();
     Queue<File> fileQueue = new LinkedList<>();
     fileQueue.add(new File(rootDir));
@@ -95,7 +95,7 @@ public class JavaGrepImp implements JavaGrep {
    * @throws IllegalArgumentException if a given input file is not a file
    */
   @Override
-  public List<String> readLines(File inputFile) {
+  public List<String> readLines(File inputFile) throws IOException {
     if (!inputFile.isFile()) {
       throw new IllegalArgumentException("ERROR: inputFile is not a file.");
     }
@@ -106,7 +106,7 @@ public class JavaGrepImp implements JavaGrep {
       while ((line = bufferedReader.readLine()) != null) {
         lines.add(line);
       }
-    } catch (Exception ex) {
+    } catch (IOException ex) {
       logger.error("ERROR: Failed to create BufferedReader", ex);
     }
     return lines;
@@ -145,7 +145,7 @@ public class JavaGrepImp implements JavaGrep {
       }
       bufferedWriter.flush();
       bufferedWriter.close();
-    } catch (Exception ex) {
+    } catch (IOException ex) {
       logger.error("ERROR: The write to outFile failed", ex);
     }
   }

@@ -19,7 +19,7 @@ public interface JavaGrep {
    * @param rootDir - Input directory
    * @return files under rootdir
    */
-  List<File> listFiles(String rootDir);
+  List<File> listFiles(String rootDir) throws IOException;
 
   /**
    * Read a file and return all the lines
