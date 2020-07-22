@@ -1,7 +1,12 @@
 package ca.jrvs.apps.practice;
 
+import static java.lang.Math.sqrt;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -18,7 +23,9 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
    */
   @Override
   public Stream<String> createStrStream(String... strings) {
-    return null;
+    ArrayList<String> stringArrayList = new ArrayList<String>();
+    stringArrayList.addAll(Arrays.asList(strings));
+    return stringArrayList.stream();
   }
 
   /**
@@ -29,7 +36,7 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
    */
   @Override
   public Stream<String> toUpperCase(String... strings) {
-    return null;
+    return createStrStream(strings).map(String::toUpperCase);
   }
 
   /**
@@ -42,7 +49,7 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
    */
   @Override
   public Stream<String> filter(Stream<String> stringStream, String pattern) {
-    return null;
+    return stringStream.filter(str -> !str.contains(pattern));
   }
 
   /**
@@ -53,7 +60,7 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
    */
   @Override
   public IntStream createIntStream(int[] arr) {
-    return null;
+    return Arrays.stream(arr);
   }
 
   /**
@@ -64,7 +71,7 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
    */
   @Override
   public <E> List<E> toList(Stream<E> stream) {
-    return null;
+    return stream.collect(Collectors.toList());
   }
 
   /**
@@ -75,7 +82,7 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
    */
   @Override
   public List<Integer> toList(IntStream intStream) {
-    return null;
+    return intStream.boxed().collect(Collectors.toList());
   }
 
   /**
@@ -87,7 +94,7 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
    */
   @Override
   public IntStream createIntStream(int start, int end) {
-    return null;
+    return IntStream.range(start, end + 1);
   }
 
   /**
@@ -98,7 +105,7 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
    */
   @Override
   public DoubleStream squareRootIntStream(IntStream intStream) {
-    return null;
+    return intStream.asDoubleStream().map(num->sqrt(num));
   }
 
   /**
@@ -109,7 +116,7 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
    */
   @Override
   public IntStream getOdd(IntStream intStream) {
-    return null;
+    return intStream.filter(number -> number % 2 != 0);
   }
 
   /**
@@ -130,7 +137,7 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
    */
   @Override
   public Consumer<String> getLambdaPrinter(String prefix, String suffix) {
-    return null;
+    return (s) -> System.out.println(prefix + s + suffix);
   }
 
   /**
@@ -146,7 +153,9 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
    */
   @Override
   public void printMessages(String[] messages, Consumer<String> printer) {
-
+    for (String msg : messages) {
+      printer.accept(msg);
+    }
   }
 
   /**
@@ -162,7 +171,8 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
    */
   @Override
   public void printOdd(IntStream intStream, Consumer<String> printer) {
-
+    IntStream filteredStream = intStream.filter(num -> num % 2 != 0);
+    filteredStream.forEach(num -> printer.accept(String.valueOf(num)));
   }
 
   /**
@@ -174,6 +184,6 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
    */
   @Override
   public Stream<Integer> flatNestedInt(Stream<List<Integer>> ints) {
-    return null;
+    return ints.flatMap(num -> num.stream()).map(num -> num * num);
   }
 }
