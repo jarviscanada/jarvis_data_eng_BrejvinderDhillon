@@ -3,6 +3,7 @@ package ca.jrvs.apps.grep;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -70,7 +71,7 @@ public class JavaGrepImp implements JavaGrep {
    * @return files under the root directory
    */
   @Override
-  public List<File> listFiles(String rootDir) throws IOException {
+  public List<File> listFiles(String rootDir) {
     List<File> files = new ArrayList<File>();
     Queue<File> fileQueue = new LinkedList<>();
     fileQueue.add(new File(rootDir));
@@ -95,7 +96,7 @@ public class JavaGrepImp implements JavaGrep {
    * @throws IllegalArgumentException if a given input file is not a file
    */
   @Override
-  public List<String> readLines(File inputFile) throws IOException {
+  public List<String> readLines(File inputFile) throws IllegalArgumentException {
     if (!inputFile.isFile()) {
       throw new IllegalArgumentException("ERROR: inputFile is not a file.");
     }
@@ -106,7 +107,7 @@ public class JavaGrepImp implements JavaGrep {
       while ((line = bufferedReader.readLine()) != null) {
         lines.add(line);
       }
-    } catch (IOException ex) {
+    } catch (Exception ex) {
       logger.error("ERROR: Failed to create BufferedReader", ex);
     }
     return lines;
@@ -137,17 +138,13 @@ public class JavaGrepImp implements JavaGrep {
   public void writeToFile(List<String> lines) throws IOException {
     File outputFile = new File(getOutFile());
     FileOutputStream outStream = new FileOutputStream(outputFile);
-    try {
-      BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outStream));
-      for (String line : lines) {
-        bufferedWriter.write(line);
-        bufferedWriter.newLine();
-      }
-      bufferedWriter.flush();
-      bufferedWriter.close();
-    } catch (IOException ex) {
-      logger.error("ERROR: The write to outFile failed", ex);
+    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outStream));
+    for (String line : lines) {
+      bufferedWriter.write(line);
+      bufferedWriter.newLine();
     }
+    bufferedWriter.flush();
+    bufferedWriter.close();
   }
 
   @Override

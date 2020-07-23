@@ -1,12 +1,12 @@
 package ca.jrvs.apps.grep;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.apache.log4j.BasicConfigurator;
 import org.slf4j.Logger;
@@ -40,16 +40,15 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
    *
    * @param rootDir input Directory
    * @return files under the root directory
-   * @throws IOException if a given directory can't be opened or traversed
    */
   @Override
-  public List<File> listFiles(String rootDir) throws IOException {
-    List<File> files = new ArrayList<>();
+  public List<File> listFiles(String rootDir) {
+    List<File> files = new ArrayList<File>();
     try {
-      Stream<Path> path = Files.walk(Paths.get(rootDir));
-      path.filter(Files:: isRegularFile).map(file -> file.toFile()).forEach(member -> files.add(member));
-    } catch (IOException ex) {
-      throw new IOException("Can't open directory", ex);
+      Stream<Path> fileStream = Files.walk(Paths.get(rootDir));
+      fileStream.filter(Files::isRegularFile).forEach(file -> files.add(file.toFile()));
+    } catch (Exception ex) {
+      logger.error("ERROR: Failed to retrieve file");
     }
     return files;
   }
@@ -60,19 +59,19 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
    * @param inputFile file to be read
    * @return lines
    * @throws IllegalArgumentException if a given input file is not a file
-   * @throws IOException if a given input file can't be opened
    */
   @Override
-  public List<String> readLines(File inputFile) throws IOException {
-    List<String> finalList = new ArrayList<>();
-    try{
-      Stream<String> lines = Files.lines(Paths.get(inputFile.getAbsolutePath()));
-      lines.forEach(element -> finalList.add(element));
-    }catch (IllegalArgumentException e) {
-      throw new IllegalArgumentException("Illegal argument passed",e);
-    }catch (IOException ex) {
-      throw new IOException("Can't open files", ex);
+  public List<String> readLines(File inputFile) throws IllegalArgumentException {
+    if (!inputFile.isFile()) {
+      throw new IllegalArgumentException("ERROR: inputFile is not a file.");
     }
-    return finalList;
+    List<String> lines = new ArrayList<>();
+    try {
+      Stream<String> stream = Files.lines(inputFile.toPath());
+      lines = stream.collect(Collectors.toList());
+    } catch (Exception ex) {
+      logger.error("ERROR: Failed to read file", ex);
+    }
+    return lines;
   }
 }
