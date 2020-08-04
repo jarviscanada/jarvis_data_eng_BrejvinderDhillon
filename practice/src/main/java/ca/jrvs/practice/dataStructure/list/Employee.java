@@ -1,6 +1,6 @@
 package ca.jrvs.practice.dataStructure.list;
 
-public class Employee {
+public class Employee implements Comparable<Employee>{
 
   private int id;
   private String name;
@@ -47,5 +47,15 @@ public class Employee {
 
   public void setSalary(long salary) {
     this.salary = salary;
+  }
+
+  @Override
+  public String toString() {
+    return "[" + "id= " + id + ", name= " + name + ", age = " + age + ", salary = " + salary +"]\n";
+  }
+
+  @Override
+  public int compareTo(Employee o) {
+    return this.id - o.id;
   }
 }
