@@ -1,13 +1,13 @@
 package ca.jrvs.practice.dataStructure.list;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
-public class ArrayListAPIs {
+public class LinkedListAPIs {
 
   public static void main(String[] args) {
-    List<String> animals = new ArrayList<>();
+    List<String> animals = new LinkedList<>();
     animals.add("Lion");
     animals.add("Tiger");
     animals.add(2, "Cat");
