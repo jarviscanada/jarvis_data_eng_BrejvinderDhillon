@@ -14,6 +14,7 @@ public class JBSTree<E> implements JTree<E> {
    * The comparator used to maintain order in this tree map Comparator cannot be null
    */
   private Comparator<E> comparator;
+  private Node<E> root;
 
   /**
    * Create a new BST
@@ -22,7 +23,27 @@ public class JBSTree<E> implements JTree<E> {
    * @throws IllegalArgumentException if comparator is null
    */
   public JBSTree(Comparator<E> comparator) {
+    notNull(comparator);
     this.comparator = comparator;
+  }
+
+  /**
+   * Create a new BST
+   *
+   * @param comparator the comparator that will be used to order this map
+   * @param root the root of the tree
+   * @throws IllegalArgumentException if comparator is null
+   */
+  public JBSTree(Comparator<E> comparator, Node<E> root) {
+    notNull(comparator);
+    this.comparator = comparator;
+    this.root = root;
+  }
+
+  private void notNull(Object o) {
+    if (o == null) {
+      throw new IllegalArgumentException("Comparator can't be null");
+    }
   }
 
   /**
@@ -34,7 +55,33 @@ public class JBSTree<E> implements JTree<E> {
    */
   @Override
   public E insert(E object) {
-    return null;
+    if (root == null){
+      root = new Node<E>(object,null);
+      return root.value;
+    }else if(search(object)!=null){
+      throw new IllegalArgumentException("Object already exists");
+    }else{
+      Node parent =null;
+      Node n= root;
+      boolean leftchild = false;
+      while(n!=null){
+        if(n.hashCode()<object.hashCode()){
+          parent = n;
+          n=n.right;
+          leftchild = false;
+        }else{
+          parent = n;
+          n=n.left;
+          leftchild = true;
+        }
+      }
+      if(leftchild){
+        parent.setLeft(new Node(object,parent));
+      }else{
+        parent.setRight(new Node(object,parent));
+      }
+    }
+    return object;
   }
 
   /**
@@ -45,6 +92,15 @@ public class JBSTree<E> implements JTree<E> {
    */
   @Override
   public E search(E object) {
+    Node n = root;
+    while(n!=null){
+      if(n.value.equals(object)){
+        return object;
+      }else if(n.hashCode()>object.hashCode()){
+        n=n.left;
+      }else
+        n = n.right;
+    }
     return null;
   }
 
@@ -57,7 +113,53 @@ public class JBSTree<E> implements JTree<E> {
    */
   @Override
   public E remove(E object) {
-    return null;
+    Node<E> n = root;
+    E dummy = null;
+    Node parent =null;
+    boolean leftChild = false;
+    while(n!=null) {
+      if (n.value.equals(object)){
+        //two child case
+        if(n.left!=null && n.right!= null){
+          dummy=findLeftMost(n);
+          remove(dummy);
+          n.value=dummy;
+        }
+        // is leaf node
+        else if(n.left == null && n.right == null)
+          if (leftChild) {
+            parent.setLeft(null);
+          } else {
+            parent.setRight(null);
+          }
+          // only have one left child
+        else {
+          if (n.left != null) {
+            if (leftChild) {
+              parent.left = n.left;
+            } else {
+              parent.right = n.left;
+            }
+          } else {
+            if (leftChild) {
+              parent.left = n.right;
+            } else {
+              parent.right = n.right;
+            }
+          }
+        }
+        return object;
+      }else if(n.hashCode()>object.hashCode()){
+        parent=n;
+        n=n.left;
+        leftChild=true;
+      }else{
+        parent=n;
+        n=n.right;
+        leftChild=false;
+      }
+    }
+    throw new IllegalArgumentException("Object not found in tree");
   }
 
   /**
@@ -88,6 +190,19 @@ public class JBSTree<E> implements JTree<E> {
   @Override
   public E[] postOrder() {
     return null;
+  }
+
+  private E findLeftMost(Node<E> n ){
+    if(n.right!=null)
+      n = n.right;
+    return n.value;
+  }
+
+  private E findRightMost(){
+    Node<E> n = root;
+    if(n.left!=null)
+      n = n.left;
+    return n.value;
   }
 
   /**
