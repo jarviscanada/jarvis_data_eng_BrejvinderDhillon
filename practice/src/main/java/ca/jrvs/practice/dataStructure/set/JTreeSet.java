@@ -1,6 +1,14 @@
 package ca.jrvs.practice.dataStructure.set;
 
-public class JTreeSet<E> implements JSet<E>{
+import java.util.TreeMap;
+
+public class JTreeSet<E> implements JSet<E> {
+
+  public transient TreeMap<E, Object> map;
+
+  public JTreeSet() {
+    this.map = new TreeMap<E, Object>();
+  }
 
   /**
    * Returns the number of elements in this set (its cardinality).  If this set contains more than
@@ -11,7 +19,7 @@ public class JTreeSet<E> implements JSet<E>{
    */
   @Override
   public int size() {
-    return 0;
+    return map.size();
   }
 
   /**
@@ -26,7 +34,7 @@ public class JTreeSet<E> implements JSet<E>{
    */
   @Override
   public boolean contains(Object o) {
-    return false;
+    return map.containsKey(o);
   }
 
   /**
@@ -46,7 +54,7 @@ public class JTreeSet<E> implements JSet<E>{
    */
   @Override
   public boolean add(E e) {
-    return false;
+    return map.put(e, new Object()) == null;
   }
 
   /**
@@ -64,7 +72,7 @@ public class JTreeSet<E> implements JSet<E>{
    */
   @Override
   public boolean remove(Object o) {
-    return false;
+    return map.remove(o) == new Object();
   }
 
   /**
@@ -72,6 +80,6 @@ public class JTreeSet<E> implements JSet<E>{
    */
   @Override
   public void clear() {
-
+    map.clear();
   }
 }

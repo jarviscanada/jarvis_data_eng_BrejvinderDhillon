@@ -1,6 +1,23 @@
 package ca.jrvs.practice.dataStructure.set;
 
+import java.util.HashMap;
+
 public class JHashSet<E> implements JSet<E> {
+
+  private static int initialCapacity = 1 << 4;
+  private static float loadFactor = 0.75f;
+
+  public transient HashMap<E, Object> map;
+
+  public JHashSet(HashMap<E, Object> map) {
+    this.map = map;
+  }
+
+  public JHashSet(int initialCapacity, int loadFactor) {
+    this.initialCapacity = initialCapacity;
+    this.loadFactor = loadFactor;
+    this.map = new HashMap<E, Object>(initialCapacity, loadFactor);
+  }
 
   /**
    * Returns the number of elements in this set (its cardinality).  If this set contains more than
@@ -11,7 +28,7 @@ public class JHashSet<E> implements JSet<E> {
    */
   @Override
   public int size() {
-    return 0;
+    return map.size();
   }
 
   /**
@@ -26,7 +43,7 @@ public class JHashSet<E> implements JSet<E> {
    */
   @Override
   public boolean contains(Object o) {
-    return false;
+    return map.containsKey(o);
   }
 
   /**
@@ -46,7 +63,7 @@ public class JHashSet<E> implements JSet<E> {
    */
   @Override
   public boolean add(E e) {
-    return false;
+    return map.put(e, new Object()) == null;
   }
 
   /**
@@ -64,7 +81,7 @@ public class JHashSet<E> implements JSet<E> {
    */
   @Override
   public boolean remove(Object o) {
-    return false;
+    return map.remove(o) == new Object();
   }
 
   /**
@@ -72,6 +89,6 @@ public class JHashSet<E> implements JSet<E> {
    */
   @Override
   public void clear() {
-
+    map.clear();
   }
 }
