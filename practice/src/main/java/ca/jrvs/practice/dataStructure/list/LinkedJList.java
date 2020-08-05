@@ -1,19 +1,6 @@
 package ca.jrvs.practice.dataStructure.list;
 
-public class LinkedJList<E> implements JList<E>{
-
-  public static class Node<E> {
-
-    public E element;
-    public Node next;
-    public Node previous;
-
-    public Node(E element) {
-      this.element = element;
-      this.next = null;
-      this.previous = null;
-    }
-  }
+public class LinkedJList<E> implements JList<E> {
 
   private Node first = null;
   private Node last = null;
@@ -29,9 +16,7 @@ public class LinkedJList<E> implements JList<E>{
    */
   @Override
   public boolean add(E e) {
-    if (e == null) {
-      throw new NullPointerException("This list does not accept null elements");
-    }
+    notNull(e);
     Node node = new Node(e);
     if (size == 0) {
       first = last = node;
@@ -42,6 +27,12 @@ public class LinkedJList<E> implements JList<E>{
     }
     size++;
     return true;
+  }
+
+  private void notNull(Object o) {
+    if (o == null) {
+      throw new NullPointerException("This list does not accept null elements");
+    }
   }
 
   /**
@@ -139,7 +130,7 @@ public class LinkedJList<E> implements JList<E>{
 
   private Node getNode(int index) {
     Node<E> e;
-    if (index < size/2) {
+    if (index < size / 2) {
       e = first;
       while (index-- > 0) {
         e = e.next;
@@ -200,6 +191,19 @@ public class LinkedJList<E> implements JList<E>{
       first = null;
       last = null;
       size = 0;
+    }
+  }
+
+  public static class Node<E> {
+
+    public E element;
+    public Node next;
+    public Node previous;
+
+    public Node(E element) {
+      this.element = element;
+      this.next = null;
+      this.previous = null;
     }
   }
 }
