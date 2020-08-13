@@ -2,7 +2,7 @@
 The Twitter CLI app is a Java 8 based application that can Post, Show and Delete Tweets from the command line. It follows the MVC design pattern, utilizing an HTTP client library to access the Twitter REST API. Developing this application required learning, JUnit, Mockito and the Spring framework for dependency management.
 
 # Quick Start
-###Running Locally
+### Running Locally
 1. Ensure the following Twitter authentication variables have been set.
 
     Variable Name | Description
@@ -24,8 +24,8 @@ The Twitter CLI app is a Java 8 based application that can Post, Show and Delete
     `$ java -jar [.jar file] post "tweet text" "latitude:longitude"` | Post a new tweet with specified longitude and latitude. | Posted Tweet in Json format.
     `java -jar [.jar file] show "id"` | Show a tweet based on its ID | Tweet with said ID in Json format.
     `java -jar [.jar file] delete "id1,id2,id3...` | Delete the Tweets that correspond to the following IDs. | Deleted tweets in json format.
-###Running with Docker
-#####Option 1: Dockerize the app
+### Running with Docker
+##### Option 1: Dockerize the app
 ```
 cd core_java/twitter
 
@@ -42,9 +42,9 @@ docker build -t ${docker_user}/twitter .
 #Verify your image
 docker image ls | grep "twitter"
 ```
-#####Option 2: Pull an image
+##### Option 2: Pull an image
 `docker pull brejvinder/twitter`
-#####Run command
+##### Run command
 ```
 docker run --rm \
 -e consumerKey=YOUR_VALUE \
