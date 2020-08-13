@@ -31,5 +31,4 @@ public interface Controller {
    * @throws IllegalArgumentException if args are invalid
    */
   List<Tweet> deleteTweet(String[] args);
-
 }
