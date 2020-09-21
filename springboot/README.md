@@ -1,9 +1,10 @@
 Table of contents
 * [Introduction](#Introduction)
-* [Quick Start](#Quick Start)
+* [Quick Start](#Quick-Start)
 * [Architecture](#Architecture)
-* [REST API Usage](#REST API Usage)
-* [Docker Deployment](#Docker Deployment)
+* [REST API Usage](#REST-API-Usage)
+* [Docker Deployment](#Docker-Deployment)
+* [Improvements](#Improvements)
 
 # Introduction
 This application is an online stock trading simulation RESTful API that can be consumed by front-end and mobile developers, as well as traders. It retrieves stock market information and persists it into a database that can then be used to CRUD quote, trader and order data from and to the database.
@@ -58,14 +59,14 @@ The application is a Proof of Concept, PoC designed with a microservice architec
         -p 8080:8080 brejvinder/trading-app
         ```
     * **Navigate to http://localhost:8080/swagger-ui.html in your browser**
-        ![Swagger](assets/Swagger UI.png)
+        ![Swagger](assets/Swagger_UI.png)
     * **Stopping the Containers**
         ```bash
         docker container stop brejvinder-trading-app-dev brejvinder-trading-psql-dev
         ```
 
 # Architecture
-![Architecture Diagram](assets/Architecture Diagram.png)
+![Architecture Diagram](assets/Architecture_Diagram.png)
 - **Controller layer**: handles HTTP requests and is responsible for controlling the application and its logic. It acts as a communicator, getting data from the API requests, converting it into a more desirable form and then passing it onto the service layer.
 - **Service layer**: handles all the business logic. It receives data from the controller layer and performs tasks such as validating the data and the called resources and then passing the data onto the DAO layer for further processing.
 - **DAO layer**: performs CRUD operations on the database and IEX system using the DAO data access pattern.
@@ -109,7 +110,7 @@ This controller is used to get different views depending on the traderId passed 
 - **GET** `/portfolio/traderId/{traderId}`: Shows the portfolio (list of securities that the trader has a position in) of the trader with the given id. 
 
 # Docker Deployment
-![Docker Diagram](assets/Docker Diagram.png)
+![Docker Diagram](assets/Docker_Diagram.png)
 Two docker images are used in this application, trading-psql and trading-app. The former is used to run the instance of our psql database whereby the schema.sql script is automatically run when the container is started to initialize the database tables. The latter is based on the openjdk:8-alpine image to run out the Java application. The jar file is compiled from a separate container that runs Maven and then copied into the container.
 
 # Improvements
