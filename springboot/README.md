@@ -67,6 +67,7 @@ The application is a Proof of Concept, PoC designed with a microservice architec
 
 # Architecture
 ![Architecture Diagram](assets/Architecture_Diagram.png)
+
 - **Controller layer**: handles HTTP requests and is responsible for controlling the application and its logic. It acts as a communicator, getting data from the API requests, converting it into a more desirable form and then passing it onto the service layer.
 - **Service layer**: handles all the business logic. It receives data from the controller layer and performs tasks such as validating the data and the called resources and then passing the data onto the DAO layer for further processing.
 - **DAO layer**: performs CRUD operations on the database and IEX system using the DAO data access pattern.
@@ -111,6 +112,7 @@ This controller is used to get different views depending on the traderId passed 
 
 # Docker Deployment
 ![Docker Diagram](assets/Docker_Diagram.png)
+
 Two docker images are used in this application, trading-psql and trading-app. The former is used to run the instance of our psql database whereby the schema.sql script is automatically run when the container is started to initialize the database tables. The latter is based on the openjdk:8-alpine image to run out the Java application. The jar file is compiled from a separate container that runs Maven and then copied into the container.
 
 # Improvements
