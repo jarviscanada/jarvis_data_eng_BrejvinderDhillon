@@ -1,62 +1,59 @@
 # Brejvinder Singh Dhillon . Jarvis Consulting
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis augue. Aliquam justo justo, mollis at lacus eu, rutrum finibus est. Vestibulum venenatis purus id accumsan pretium. In efficitur magna nec enim laoreet tincidunt. Ut libero metus, scelerisque nec eros vitae, sagittis pellentesque enim. Donec dictum felis volutpat, vehicula magna eu, imperdiet elit. Phasellus ut velit a massa efficitur faucibus. Sed volutpat, lacus sed sagittis luctus, elit.
+I'm Brejvinder, a recent graduate from the University of Windsor with a Bachelor's in Computer Science Honors. I specialize in the design and analysis of algorithms and have a foundation in theoretical computer science. I'm currently a Data Engineer at Jarvis Consulting where I'm being given the opportunity to apply my knowledge and hone my skills with industry-standard tools. I have an interest in artificial intelligence, data analytics and game theory. Despite being from a science background, I have a passion for creative arts, namely music and creative writing which translates back into my programing as I like to create beautiful and efficient code.
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
+**Proficient:** Java, C/C++, Algorithms/Data Structures, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git/GitHub, GitFlow, Maven
 
-**Competent:** Donec, fermentum, Donec, fermentum, Donec
+**Competent:** CSS, PHP, HTML, JavaScript, Python, Docker, Springboot, REST APIs
 
-**Familiar:** Donec, fermentum, fermentum, fermentum, fermentum
+**Familiar:** Operating Systems, Computer Graphics, TeX, x86 ASM, Google Cloud Platform
 
 ## Jarvis Projects
 
 Project source code: [https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon)
 
 
-**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/linux_sql)]: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/linux_sql)]: Developed a tool that allows users to monitor nodes connected in a Linux cluster by tracking the hardware specifications and resource usage of the cluster nodes. The data is collected in real-time and is currently being used for report generation and future planning. The Monitoring Agents on the nodes collect and send data to the centralized database on a scheduled basis via crontab over the network. The docker initialization and SQL scripts ensure the deployment of the RDBMS with a standardized schema and environment.
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/core_java)]:
       
-  - Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
+  - Twitter App: Implemented an application that can Post, Show and Delete Tweets from the command line. It follows the MVC design pattern, utilizing an HTTP client library to access the Twitter REST API.
+  - JDBC App: Coded an implementation of CRUD (Create, Read, Update and Delete) operations on a PostgresSQL Database through the Data Access Object(DAO) design pattern.
+  - Grep App: Programmed an implementation of the Linux grep command. Specifically, it recursively searches through a specified directory for a given RegEx pattern and stores the found lines into an output file. There are two implementations, one with and without the usage of Lambda Functions.
 
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/springboot)]: Not Started
+**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/springboot)]: Developed an online stock trading simulation RESTful API that can be consumed by front-end and mobile developers, as well as traders. It retrieves stock market information and persists it into a database that can then be used to CRUD quote, trader and order data from and to the database.
 
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/hadoop)]: Not Started
+**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/hadoop)]: In progress
 
-**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/spark)]: Not Started
+**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/spark)]: Not started
 
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/cloud_devops)]: Not Started
+**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/cloud_devops)]: Not started
 
 
 ## Highlighted Projects
-**Web app for resturant** [[GitHub](https://github.com/jarviscanada/jarvis_profile_builder)]: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+**Graphics Project** [[GitHub](https://github.com/Brejvinder/Graphics-Project)]: Programmed modified 2.5D Doom style environment used to gain experience in and understanding of computer graphics. Features various drawing and rendering techniques to produce computed surfaces. Optimized for rapid pixel manipulation through efficient algorithms. Allows for browser deployment via emscripten integration.
 
-**Machine Learning**: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+**Mergit** [[GitHub](https://github.com/Tristhal/MerGit)]: Collaborated on a desktop application used to streamline the management of git projects by helping users to resolve merge conflicts quickly and efficiently by facilitating quick jummping between all conflicts in a project.
+
+**Cipher Mod** [[GitHub](https://github.com/Brejvinder/Cipher-Mod)]: Implemented a cipher system and modded into Minecraft's in game chat system to allow for private communication. The mod is optimized for seamless intergration with automatic decrytion being achieved using keywords.
 
 
 ## Professional Experiences
 
-**Software Developer, Jarvis (2020-present)**: Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.
+**Software Developer, Jarvis (2020-present)**: Collaborated with a small team using the Scrum framework to develop various Data Engineering projects. Projects were implemented using Java, Maven, SpringBoot, Bash, RDBMS/SQL, Git, Hadoop, Spark/Scala, and Docker within a Linux environment. Integration and unit testing was done using JUnit and Mockito.
 
-**Tutor, XYZ Company (2019)**: Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.
+**Volunteer & Committee Member, University of Windsor Science Olympiad (October 2017 & 2018 respectively)**: Recruited and led a team of 6 UWindsor students to organize and run the Computer Science division of the Olympiad. The challenges were designed, revised and iteratively tested with the team.
+
+**Volunteer Technician, North Borneo Youth Camp (Summer 2017)**: Volunteered to help run a youth camp focused on education and cultural development for 43 children. Ensured the camps audiovisual equipment was distributed, set up and their users educated on their operation. Rotated throughout the camp to help other teams and troubleshooted problems that arose throughout the camp.
 
 
 ## Education
-**XYZ university (2012-2016)**, Bachelor of Applied Sciences, Electrical and Computer Engineering
-- Scholarship
-- GPA: 3.8/4.0
-
-**XYZ university (2016-2018)**, Master of Engineering, Electrical and Computer Engineering
+**University of Windsor (2016-2020)**, Bachelor of Computer Science (Hon), School of Computer Science
+- Directors Honour Roll 2017
 
 
 ## Miscellaneous
-- Udacity Machine Learning (2019)
-- Dean's List (2015, 2016): Ut enim ad minim veniam
-- Winner
-- Basketball player
-- Competitive gaming
-- Volunteer, ABC Food bank: Ut enim ad minim veniam
+- Tabla & Harmonium player
+- Badminton & Table Tennis player
