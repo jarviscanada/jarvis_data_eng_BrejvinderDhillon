@@ -6,14 +6,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-/*
+/**
  * Ticket: https://www.notion.so/How-to-compare-two-maps-745e7ae3bd3a4f9fbaec89092b224661
  */
 public class MapComparison {
 
   /**
-   * Big-O: O(n) time, O(n) space.
-   * Justification: We have to compare all the elements in both maps.
+   * Big-O: O(n) time, O(n) space. Justification: We have to compare all the elements in both maps.
    */
   public <K, V> boolean mapEquals(HashMap<K, V> m1, HashMap<K, V> m2) {
     return m1.equals(m2);
