@@ -5,6 +5,10 @@ package ca.jrvs.practice.codingChallenge;
  */
 public class RotateString {
 
+  /**
+   * Big-O: O(n^2). The .contains() method uses the indexOf method which is O(n) for each input n so
+   * n*x so O(n^2)
+   */
   public static boolean rotate(String A, String B) {
     return A.length() == B.length() && (A + A).contains(B);
   }
