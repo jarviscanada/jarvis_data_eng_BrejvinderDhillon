@@ -6,7 +6,7 @@ I'm Brejvinder, a recent graduate from the University of Windsor with a Bachelor
 
 **Proficient:** Java, C/C++, Algorithms/Data Structures, Linux/BASH, RDBMS/SQL, Agile/Scrum, Git/GitHub, GitFlow, Maven, Springboot, REST APIs
 
-**Competent:** CSS, PHP, HTML, JavaScript, Python, Docker
+**Competent:** CSS, PHP, HTML, JavaScript, Python, Docker, Jupyter Notebook
 
 **Familiar:** Operating Systems, Computer Graphics, TeX, x86 ASM, Google Cloud Platform
 
@@ -24,6 +24,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_Brejvinder
   - Grep App: Programmed a Java 8 implementation of the Linux grep command. Specifically, it recursively searches through a specified directory for a given RegEx pattern and stores the found lines into an output file. There are two implementations, one with and without the usage of Lambda Functions and Streams. Maven and Docker were used to build, deploy and run the app.
 
 **Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/springboot)]: Developed an online stock trading simulation RESTful API that can be consumed by front-end and mobile developers, as well as traders. It retrieves stock market information and persists it into a PSQL database that can then be used to CRUD quote, trader and order data from and to the database. The application is a proof of concept designed with a microservice architecture. It follows the three-tier and MVC architecture design patterns. IEX Cloud was used as the stock information data source. SpringBoot was used to manage dependencies and PSQL was used to persist and CRUD data using DAO. Docker was used to run an instance of the PSQL database along with another image for the application which was based on the openjdk:8-alpine image. Testing was done using JUnit 4. The GUI of the RESTful API was built using Swagger.
+
+**Python Data Wrangling** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/python_data_wrangling)]: Performed data analytics and wrangling against a data warehouse using the Pandas Python package and Jupyter Notebook with information supplied by an online retailer with the goal being to help drive up their revenue. A dockerized PSQL instance was used for the Data Warehouse whereas matplotlib was used to plot and present the data in the notebook. The analysis consisted of answering business questions along with segmenting customers using RFM Segmentation to help the company develop targeted marketing strategies.
 
 **Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/hadoop)]: In progress
 
