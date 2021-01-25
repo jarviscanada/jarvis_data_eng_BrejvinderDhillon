@@ -54,7 +54,7 @@
       "name": "Python Data Wrangling"
     },
     {
-      "description": "In progress",
+      "description": "Evaluated Hadoop's core components namely HDFS, YARN, and MapReduce.  A 3-node Hadoop cluster was deployed using Google Cloud Platform Dataproc, where data processing/analytics was performed using Hive and Zeppelin notebook. The 2016 World Development Indicators dataset was examined, optimized and analyzed with the leverage of the distributed storage and processing capabilities of Hadoop's ecosystem. ",
       "git_url": "/hadoop",
       "name": "Hadoop"
     },
@@ -107,7 +107,9 @@
       "JavaScript",
       "Python",
       "Docker",
-      "Jupyter Notebook"
+      "Jupyter Notebook",
+      "Zepplin Notebook",
+      "HDFS"
     ],
     "familiar": [
       "Operating Systems",
