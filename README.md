@@ -6,7 +6,7 @@ I'm Brejvinder, a recent graduate from the University of Windsor with a Bachelor
 
 **Proficient:** Java, C/C++, Algorithms/Data Structures, Linux/BASH, RDBMS/SQL, Agile/Scrum, Git/GitHub, GitFlow, Maven, Springboot, REST APIs
 
-**Competent:** CSS, PHP, HTML, JavaScript, Python, Docker, Jupyter Notebook
+**Competent:** CSS, PHP, HTML, JavaScript, Python, Docker, Jupyter Notebook, Zepplin Notebook, HDFS
 
 **Familiar:** Operating Systems, Computer Graphics, TeX, x86 ASM, Google Cloud Platform
 
@@ -27,7 +27,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_Brejvinder
 
 **Python Data Wrangling** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/python_data_wrangling)]: Performed data analytics and wrangling against a data warehouse using the Pandas Python package and Jupyter Notebook with information supplied by an online retailer with the goal being to help drive up their revenue. A dockerized PSQL instance was used for the Data Warehouse whereas matplotlib was used to plot and present the data in the notebook. The analysis consisted of answering business questions along with segmenting customers using RFM Segmentation to help the company develop targeted marketing strategies.
 
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/hadoop)]: In progress
+**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/hadoop)]: Evaluated Hadoop's core components namely HDFS, YARN, and MapReduce.  A 3-node Hadoop cluster was deployed using Google Cloud Platform Dataproc, where data processing/analytics was performed using Hive and Zeppelin notebook. The 2016 World Development Indicators dataset was examined, optimized and analyzed with the leverage of the distributed storage and processing capabilities of Hadoop's ecosystem. 
 
 **Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_BrejvinderDhillon/tree/master/spark)]: Not started
 
